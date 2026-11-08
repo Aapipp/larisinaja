@@ -1,0 +1,13 @@
+# Binaries & installers
+*.exe
+*.msi
+
+# OS files
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store
+
+# Editor & logs
+*.log
+.vscode/
+.idea/
