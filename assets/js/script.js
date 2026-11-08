@@ -56,7 +56,7 @@ const slideCount = track ? track.children.length : 0;
 
 function updateCarousel() {
   if (!track) return;
-  track.style.transform = `translateX(-${current * 100}%)`;
+  track.style.transform = `translate3d(-${current * 100}%, 0, 0)`;
   dots.forEach((dot, i) => {
     const active = i === current;
     dot.classList.toggle("w-6", active);
@@ -77,7 +77,7 @@ if (nextBtn) nextBtn.addEventListener("click", () => { goTo(current + 1); startA
 dots.forEach((dot) => dot.addEventListener("click", () => { goTo(Number(dot.dataset.index)); startAuto(); }));
 updateCarousel();
 
-// Auto-advance and pointer swipe
+// Auto-advance and smooth touch swipe without blocking page scroll
 let autoTimer = null;
 function startAuto() { stopAuto(); autoTimer = setInterval(() => goTo(current + 1), 5000); }
 function stopAuto() { if (autoTimer) clearInterval(autoTimer); autoTimer = null; }
@@ -85,20 +85,51 @@ if (track && carouselViewport && slideCount > 1) {
   startAuto();
 
   let pointerStartX = null;
+  let pointerStartY = null;
+  let isSwiping = false;
+
   carouselViewport.addEventListener("pointerdown", (event) => {
     if (event.pointerType === "mouse" && event.button !== 0) return;
     pointerStartX = event.clientX;
-    carouselViewport.setPointerCapture(event.pointerId);
-  });
+    pointerStartY = event.clientY;
+    isSwiping = false;
+    stopAuto();
+  }, { passive: true });
+
+  carouselViewport.addEventListener("pointermove", (event) => {
+    if (pointerStartX === null) return;
+    const deltaX = event.clientX - pointerStartX;
+    const deltaY = event.clientY - pointerStartY;
+
+    if (!isSwiping) {
+      if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        isSwiping = true;
+        try { carouselViewport.setPointerCapture(event.pointerId); } catch (_) {}
+      } else if (Math.abs(deltaY) > 8) {
+        pointerStartX = null;
+        pointerStartY = null;
+        startAuto();
+      }
+    }
+  }, { passive: true });
+
   carouselViewport.addEventListener("pointerup", (event) => {
     if (pointerStartX === null) return;
     const distance = event.clientX - pointerStartX;
     pointerStartX = null;
-    if (Math.abs(distance) < 40) return;
-    goTo(current + (distance < 0 ? 1 : -1));
+    pointerStartY = null;
+    try { carouselViewport.releasePointerCapture(event.pointerId); } catch (_) {}
+    if (Math.abs(distance) >= 35) {
+      goTo(current + (distance < 0 ? 1 : -1));
+    }
     startAuto();
   });
-  carouselViewport.addEventListener("pointercancel", () => { pointerStartX = null; });
+
+  carouselViewport.addEventListener("pointercancel", () => {
+    pointerStartX = null;
+    pointerStartY = null;
+    startAuto();
+  });
 }
 
 /* ------- 4. Form Validasi & Webhook ------- */
@@ -246,6 +277,19 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
+function setScrollLock(locked) {
+  if (locked) {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.paddingRight = "";
+    document.body.style.overflow = "";
+  }
+}
+
 function openSuccessModal(payload) {
   if (!modal) return;
   lastPayload = payload;
@@ -255,14 +299,14 @@ function openSuccessModal(payload) {
   showSuccessView();
   modal.classList.remove("hidden");
   modal.classList.add("flex");
-  document.body.style.overflow = "hidden";
+  setScrollLock(true);
 }
 
 function closeModal() {
   if (!modal) return;
   modal.classList.add("hidden");
   modal.classList.remove("flex");
-  document.body.style.overflow = "";
+  setScrollLock(false);
   resetWaView();
 }
 
