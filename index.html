@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Larisin aja — Biar obrolan jadi pesanan</title>
-  <meta name="description" content="Larisin aja merapikan chat WhatsApp yang menumpuk jadi daftar pesanan yang jelas. Trial 14 hari gratis, tanpa kartu kredit." />
+  <title>LarisinAja — Biar Chat Jadi Pesanan, Otomatis!</title>
+  <meta name="description" content="LarisinAja bantu UMKM balas chat WhatsApp otomatis, kirim katalog produk, dan rekap pesanan langsung ke Google Sheets. Trial 14 hari gratis, setup 2 menit." />
 
   <!-- Font: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,19 +34,53 @@
 <body class="font-sans bg-[#FDFBF7] text-[#18181B] overflow-x-hidden">
 
   <!-- ============================ A. NAVBAR ============================ -->
-  <header class="sticky top-0 z-50 border-b border-[#F0E6DC] bg-[#FDFBF7]/85 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-[#F0E6DC] bg-[#FDFBF7]/90 backdrop-blur-md">
     <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-      <a href="#top" class="flex items-center gap-2.5" aria-label="Larisin aja">
-        <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E04F00] shadow-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-white"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clip-rule="evenodd"/></svg>
-        </span>
+
+      <!-- Logo kiri -->
+      <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="LarisinAja">
+        <img
+          src="assets/img/logo.jpeg"
+          alt="LarisinAja Logo"
+          class="h-9 w-9 rounded-xl object-cover shadow-sm"
+          style="min-width:36px;"
+        />
         <span class="text-lg font-extrabold tracking-tight">Larisin&nbsp;<span class="text-[#E04F00]">aja</span></span>
       </a>
-      <a href="#form-trial" class="inline-flex items-center gap-2 rounded-full bg-[#E04F00] px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#C24300]">
-        Klaim trial
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-      </a>
+
+      <!-- Menu Navigasi Tengah (desktop) -->
+      <ul class="hidden md:flex items-center gap-7 text-sm font-semibold text-[#18181B]">
+        <li><a href="#top"         class="nav-link hover:text-[#E04F00] transition">Home</a></li>
+        <li><a href="#benefit"     class="nav-link hover:text-[#E04F00] transition">Benefit</a></li>
+        <li><a href="#fitur"       class="nav-link hover:text-[#E04F00] transition">Fitur</a></li>
+        <li><a href="#cara-kerja"  class="nav-link hover:text-[#E04F00] transition">Cara Kerja</a></li>
+        <li><a href="#testimoni"   class="nav-link hover:text-[#E04F00] transition">Testimoni</a></li>
+      </ul>
+
+      <!-- Tombol kanan + hamburger mobile -->
+      <div class="flex items-center gap-3">
+        <a href="#form-trial" class="inline-flex items-center gap-2 rounded-full bg-[#E04F00] px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-[#C24300]">
+          Klaim trial
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
+        <!-- Hamburger (mobile) -->
+        <button id="menuToggle" aria-label="Buka menu" class="flex md:hidden h-9 w-9 items-center justify-center rounded-xl border border-[#F0E6DC] bg-white text-[#18181B] transition hover:border-[#E04F00] hover:text-[#E04F00]">
+          <svg id="iconHamburger" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+          <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5 hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
     </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-[#F0E6DC] bg-[#FDFBF7] px-5 pb-4 pt-3">
+      <ul class="flex flex-col gap-1 text-sm font-semibold text-[#18181B]">
+        <li><a href="#top"        class="mobile-nav-link block rounded-xl px-3 py-2.5 hover:bg-[#FDF3EB] hover:text-[#E04F00] transition">Home</a></li>
+        <li><a href="#benefit"    class="mobile-nav-link block rounded-xl px-3 py-2.5 hover:bg-[#FDF3EB] hover:text-[#E04F00] transition">Benefit</a></li>
+        <li><a href="#fitur"      class="mobile-nav-link block rounded-xl px-3 py-2.5 hover:bg-[#FDF3EB] hover:text-[#E04F00] transition">Fitur</a></li>
+        <li><a href="#cara-kerja" class="mobile-nav-link block rounded-xl px-3 py-2.5 hover:bg-[#FDF3EB] hover:text-[#E04F00] transition">Cara Kerja</a></li>
+        <li><a href="#testimoni"  class="mobile-nav-link block rounded-xl px-3 py-2.5 hover:bg-[#FDF3EB] hover:text-[#E04F00] transition">Testimoni</a></li>
+      </ul>
+    </div>
   </header>
 
   <main id="top">
@@ -56,36 +90,32 @@
 
         <!-- Kolom Kiri -->
         <div class="animate-fadeUp">
-          <!-- <span class="inline-flex items-center gap-2 rounded-full border border-[#F0E6DC] bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[#E04F00]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
-            UNTUK UMKM YANG JUALAN LEWAT CHAT
-          </span> -->
+          <span class="inline-flex items-center gap-2 rounded-full border border-[#F0E6DC] bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[#E04F00]">
+            🚀 Khusus untuk pemilik UMKM
+          </span>
 
           <h1 class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-            <span class="block text-[#18181B]">Larisin aja,</span>
-            <span class="block text-[#E04F00]">biar obrolan</span>
-            <span class="block text-[#E04F00]">jadi pesanan.</span>
+            <span class="block text-[#18181B]">Capek balas chat</span>
+            <span class="block text-[#E04F00]">satu-satu?</span>
+            <span class="block text-[#E04F00]">Larisin aja.</span>
           </h1>
 
           <p class="mt-6 max-w-md text-lg leading-relaxed text-[#6E655F]">
-            Larisin aja merapikan chat yang menumpuk jadi daftar pesanan yang jelas
+            Bot WhatsApp otomatis yang balas pelanggan, kirim katalog menu/produk, dan rekap semua pesanan langsung ke Google Sheets — bahkan saat kamu tidur.
           </p>
 
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a href="#form-trial" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#E04F00] px-7 py-3.5 text-base font-bold text-white shadow-soft transition hover:bg-[#C24300]">
-              Coba 14 hari gratis
+              Coba 14 hari GRATIS
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
             </a>
-            <!-- <a href="#pricing" class="inline-flex items-center justify-center gap-2 rounded-full border border-[#E7DCD1] bg-white px-7 py-3.5 text-base font-bold text-[#18181B] transition hover:border-[#E04F00] hover:text-[#E04F00]">
-              Lihat pilihan paket
-            </a> -->
+            <p class="flex items-center gap-2 text-sm font-medium text-[#6E655F]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 text-green-600"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
+              Setup 2 menit, tanpa syarat ribet
+            </p>
           </div>
-
-          <!-- <p class="mt-5 flex items-center gap-2 text-sm font-medium text-[#6E655F]">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 text-green-600"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
-            Tanpa kartu kredit, lanjut berlangganan hanya kalau cocok
-          </p> -->
         </div>
+
         <!-- Kolom Kanan: Interactive Card Carousel -->
         <div class="animate-fadeUp">
           <div id="heroCard" class="relative rounded-3xl border border-[#F0E6DC] bg-white p-6 shadow-soft sm:p-8">
@@ -97,17 +127,17 @@
                   <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FDF3EB] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#E04F00]">
                     <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Chat menumpuk
                   </span>
-                  <h3 class="mt-4 text-2xl font-extrabold text-[#18181B]">Sibuk buat bales chat?</h3>
-                  <p class="mt-2 text-[#6E655F]">Pesan masuk terus, tapi stok dan harga harus dicek satu per satu dulu.</p>
+                  <h3 class="mt-4 text-2xl font-extrabold text-[#18181B]">Capek balas chat terus?</h3>
+                  <p class="mt-2 text-[#6E655F]">Jam 10 malam pelanggan masih nanya-nanya. Larisin aja yang balas, kamu istirahat.</p>
                   <div class="mt-6 space-y-3 rounded-2xl bg-[#FDF3EB] p-4">
                     <div class="flex justify-start">
-                      <div class="max-w-[80%] rounded-2xl rounded-tl-md bg-white px-4 py-2.5 text-sm text-[#18181B] shadow-sm">Kak, ini masih ada ukuran L?</div>
+                      <div class="max-w-[80%] rounded-2xl rounded-tl-md bg-white px-4 py-2.5 text-sm text-[#18181B] shadow-sm">Kak, ada nasi goreng spesial nggak?</div>
                     </div>
                     <div class="flex justify-start">
-                      <div class="max-w-[80%] rounded-2xl rounded-tl-md bg-white px-4 py-2.5 text-sm text-[#18181B] shadow-sm">Rekening yang kemarin sama ya?</div>
+                      <div class="max-w-[80%] rounded-2xl rounded-tl-md bg-white px-4 py-2.5 text-sm text-[#18181B] shadow-sm">Mau pesan 2 porsi bisa COD?</div>
                     </div>
                     <div class="flex justify-end">
-                      <div class="max-w-[80%] rounded-2xl rounded-tr-md bg-[#E04F00] px-4 py-2.5 text-sm font-medium text-white shadow-sm">Ada kak, aku catat pesanannya ya.</div>
+                      <div class="max-w-[80%] rounded-2xl rounded-tr-md bg-[#E04F00] px-4 py-2.5 text-sm font-medium text-white shadow-sm">Ada kak! Ini katalog lengkapnya 👇 Pesanan dicatat otomatis ya.</div>
                     </div>
                   </div>
                 </div>
@@ -115,54 +145,52 @@
                 <!-- Slide 2 -->
                 <div class="w-full shrink-0">
                   <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FDF3EB] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#E04F00]">
-                    <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Stok &amp; harga
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Katalog otomatis
                   </span>
-                  <h3 class="mt-4 text-2xl font-extrabold text-[#18181B]">Stok &amp; harga otomatis dicek</h3>
-                  <p class="mt-2 text-[#6E655F]">Bot langsung mengecek ketersediaan produk dan harga, jadi jawaban ke pembeli selalu akurat.</p>
+                  <h3 class="mt-4 text-2xl font-extrabold text-[#18181B]">Katalog terkirim, tanpa kamu ketik</h3>
+                  <p class="mt-2 text-[#6E655F]">Bot langsung kirim menu/katalog produkmu ke pelanggan — lengkap dengan harga dan stok terkini.</p>
                   <div class="mt-6 space-y-3 rounded-2xl bg-[#FDF3EB] p-4">
                     <div class="flex justify-start">
-                      <div class="max-w-[80%] rounded-2xl rounded-tl-md bg-white px-4 py-2.5 text-sm text-[#18181B] shadow-sm">Kak, ukuran L masih ready nggak?</div>
+                      <div class="max-w-[80%] rounded-2xl rounded-tl-md bg-white px-4 py-2.5 text-sm text-[#18181B] shadow-sm">Ada menu apa aja kak?</div>
                     </div>
                     <div class="flex justify-end">
-                      <div class="max-w-[80%] rounded-2xl rounded-tr-md bg-[#E04F00] px-4 py-2.5 text-sm font-medium text-white shadow-sm">Bentar kak, aku cek dulu ya.</div>
+                      <div class="max-w-[80%] rounded-2xl rounded-tr-md bg-[#E04F00] px-4 py-2.5 text-sm font-medium text-white shadow-sm">Ini menu hari ini kak! 😊</div>
                     </div>
                     <div class="rounded-2xl border border-[#F0E6DC] bg-white p-3.5 shadow-sm">
                       <div class="flex items-center justify-between text-sm">
-                        <span class="font-bold text-[#18181B]">Ukuran L</span>
-                        <span class="rounded-full bg-[#EAF7EE] px-2.5 py-1 text-xs font-bold text-green-700">Stok tersedia</span>
+                        <span class="font-bold text-[#18181B]">🍛 Nasi Goreng Spesial</span>
+                        <span class="rounded-full bg-[#EAF7EE] px-2.5 py-1 text-xs font-bold text-green-700">Ready</span>
                       </div>
-                      <p class="mt-1 text-sm text-[#6E655F]">Harga: Rp45.000</p>
-                    </div>
-                    <div class="flex justify-end">
-                      <div class="max-w-[80%] rounded-2xl rounded-tr-md bg-[#E04F00] px-4 py-2.5 text-sm font-medium text-white shadow-sm">Ready kak, tinggal dibungkus. 😊</div>
+                      <p class="mt-1 text-sm text-[#6E655F]">Rp18.000 — porsi besar</p>
                     </div>
                   </div>
                 </div>
+
                 <!-- Slide 3 -->
                 <div class="w-full shrink-0">
                   <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FDF3EB] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#E04F00]">
-                    <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Pesanan tercatat
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Rekap ke Sheets
                   </span>
-                  <h3 class="mt-4 text-2xl font-extrabold text-[#18181B]">Pesanan langsung tercatat rapi</h3>
-                  <p class="mt-2 text-[#6E655F]">Setiap obrolan berubah jadi catatan pesanan lengkap dengan status pembayaran.</p>
+                  <h3 class="mt-4 text-2xl font-extrabold text-[#18181B]">Pesanan langsung masuk Sheets</h3>
+                  <p class="mt-2 text-[#6E655F]">Tiap obrolan jadi catatan pesanan rapi di Google Sheets — tanpa kamu ketik ulang sepatah kata pun.</p>
                   <div class="mt-6 space-y-2.5 rounded-2xl bg-[#FDF3EB] p-4">
                     <div class="rounded-xl bg-white p-3.5 shadow-sm">
                       <div class="flex items-center justify-between">
-                        <span class="text-sm font-bold text-[#18181B]">Pesanan #011</span>
+                        <span class="text-sm font-bold text-[#18181B]">Pesanan #011 · Budi S.</span>
                         <span class="rounded-full bg-[#FDF3EB] px-2.5 py-1 text-xs font-bold text-[#E04F00]">Baru</span>
                       </div>
-                      <p class="mt-1 text-sm text-[#6E655F]">1x Baju kaos — Ukuran L</p>
+                      <p class="mt-1 text-sm text-[#6E655F]">2x Nasi Goreng Spesial — Rp36.000</p>
                       <p class="mt-0.5 flex items-center gap-1.5 text-xs font-semibold text-green-700">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
-                        Menunggu pembayaran
+                        Tercatat di Google Sheets ✓
                       </p>
                     </div>
                     <div class="rounded-xl bg-white p-3.5 shadow-sm">
                       <div class="flex items-center justify-between">
-                        <span class="text-sm font-bold text-[#18181B]">Pesanan #010</span>
+                        <span class="text-sm font-bold text-[#18181B]">Pesanan #010 · Siti R.</span>
                         <span class="rounded-full bg-[#EAF7EE] px-2.5 py-1 text-xs font-bold text-green-700">Lunas</span>
                       </div>
-                      <p class="mt-1 text-sm text-[#6E655F]">2x Cemilan kacang — Paket hemat</p>
+                      <p class="mt-1 text-sm text-[#6E655F]">1x Ayam Bakar — Rp22.000</p>
                       <p class="mt-0.5 flex items-center gap-1.5 text-xs font-semibold text-green-700">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd"/></svg>
                         Siap dikirim
@@ -196,12 +224,15 @@
       </div>
     </section>
 
-    <!-- ====================== C. VALUE PROPOSITION ====================== -->
-    <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 md:py-24">
-      <!-- <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Kenapa Larisin aja</p> -->
+    <!-- ====================== C. BENEFIT ====================== -->
+    <section id="benefit" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 md:py-24">
+      <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Kenapa LarisinAja?</p>
       <h2 class="mt-3 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-[#18181B] sm:text-4xl">
-        Tiga pekerjaan repot, dikerjakan sekali jalan
+        Tiga masalah UMKM, beres dalam sekali setup
       </h2>
+      <p class="mt-4 max-w-xl text-[#6E655F] leading-relaxed">
+        Nggak perlu hire admin tambahan. Nggak perlu buka laptop tengah malam. Cukup scan QR, dan biarkan bot yang kerja keras.
+      </p>
 
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         <!-- Kartu 1 -->
@@ -209,129 +240,230 @@
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FDF3EB]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
           </div>
-          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Chat jadi pesanan</h3>
-          <p class="mt-2 leading-relaxed text-[#6E655F]">Ubah obrolan pembeli menjadi catatan pesanan tanpa mengetik ulang.</p>
+          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Balas chat otomatis 24/7</h3>
+          <p class="mt-2 leading-relaxed text-[#6E655F]">Bot langsung balas pelanggan yang chat, kapan pun — jam sibuk, malam hari, bahkan saat toko tutup. Nggak ada chat yang ketinggalan.</p>
         </div>
 
         <!-- Kartu 2 -->
         <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft transition hover:-translate-y-1">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FDF3EB]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
           </div>
-          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Pesanan tersusun</h3>
-          <p class="mt-2 leading-relaxed text-[#6E655F]">Lihat status pesanan dan pembayaran dalam satu daftar yang mudah dicek.</p>
+          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Katalog & pesanan tercatat rapi</h3>
+          <p class="mt-2 leading-relaxed text-[#6E655F]">Bot otomatis kirim katalog menu/produk dan rekap setiap pesanan langsung ke Google Sheets milikmu — tanpa perlu ngetik ulang satu pun.</p>
         </div>
 
         <!-- Kartu 3 -->
         <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft transition hover:-translate-y-1">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FDF3EB]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75Zm6.75-4.5c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625Zm6.75-4.5c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z"/></svg>
           </div>
-          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Laporan sederhana</h3>
-          <p class="mt-2 leading-relaxed text-[#6E655F]">Tahu produk mana yang paling sering ditanya pembeli minggu ini.</p>
+          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Setup 2 menit via scan QR</h3>
+          <p class="mt-2 leading-relaxed text-[#6E655F]">Nggak perlu skill teknis, nggak perlu install aplikasi ribet. Cukup scan QR, bot langsung aktif di WhatsApp bisnismu. Tim kami bantu sampai jalan.</p>
         </div>
       </div>
     </section>
 
-    <!-- ========================== D. PRICING ========================== -->
-    <section id="pricing" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 sm:px-8 md:py-24">
+    <!-- ========================== D. FITUR ========================== -->
+    <section id="fitur" class="scroll-mt-20 bg-[#1F1209] px-5 py-16 sm:px-8 md:py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center">
+          <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Apa yang kamu dapat</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Fitur lengkap, harga bersahabat</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-white/70">Trial 14 hari kasih akses penuh ke semua fitur. Setelah itu, lanjut berlangganan hanya jika kamu merasa terbantu.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
+          <!-- Kartu Trial -->
+          <div class="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-8">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-[0.14em] text-white/60">Trial 14 hari</span>
+              <span class="rounded-full bg-[#E04F00] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">Gratis!</span>
+            </div>
+            <div class="mt-6 flex items-baseline gap-2">
+              <span class="text-5xl font-extrabold tracking-tight text-white">Rp0</span>
+              <span class="text-white/60">/ 14 hari pertama</span>
+            </div>
+            <p class="mt-3 text-white/70">Coba semua fitur inti tanpa bayar. Tanpa kartu kredit, tanpa syarat ribet.</p>
+            <ul class="mt-7 space-y-3.5">
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Bot balas chat WhatsApp otomatis</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Kirim katalog menu/produk otomatis</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Rekap pesanan langsung ke Google Sheets</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Setup dibantu tim kami sampai jalan</span>
+              </li>
+            </ul>
+            <div class="mt-8 flex-1"></div>
+            <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full bg-[#E04F00] px-6 py-3.5 font-bold text-white transition hover:bg-[#C24300]">Klaim trial sekarang</a>
+          </div>
+
+          <!-- Kartu Berlangganan -->
+          <div class="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-8">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-[0.14em] text-white/60">Berlangganan</span>
+              <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white/80">Setelah trial</span>
+            </div>
+            <div class="mt-6 flex items-baseline gap-2">
+              <span class="text-5xl font-extrabold tracking-tight text-white">Rp79.000</span>
+              <span class="text-white/60">/ bulan</span>
+            </div>
+            <p class="mt-3 text-white/70">Lanjutkan semua yang sudah kamu setup selama trial. Bisa cancel kapan saja, nggak ada kontrak.</p>
+            <ul class="mt-7 space-y-3.5">
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-400"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Semua fitur paket trial</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-400"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Laporan penjualan bulanan</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-400"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Support prioritas via WhatsApp</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-400"><path d="M5 13l4 4L19 7"/></svg>
+                <span class="text-white/90">Bisa dibatalkan kapan saja</span>
+              </li>
+            </ul>
+            <div class="mt-8 flex-1"></div>
+            <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 font-bold text-white transition hover:bg-white/20">Mulai dari trial dulu</a>
+          </div>
+        </div>
+
+        <p class="mt-6 text-center text-sm text-white/50">Harga berlangganan baru ditagihkan setelah masa trial 14 hari selesai, kalau kamu memilih lanjut.</p>
+      </div>
+    </section>
+
+    <!-- ========================== E. CARA KERJA ========================== -->
+    <section id="cara-kerja" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 md:py-24">
       <div class="text-center">
-        <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Pilihan paket</p>
-        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Mulai dari trial, lanjut saat cocok</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-[#6E655F]">Trial 14 hari memberi akses penuh. Setelah itu kamu bebas memilih untuk melanjutkan berlangganan atau tidak.</p>
+        <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Semudah ini</p>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">
+          Aktif dalam 2 menit, beneran
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-[#6E655F]">Nggak perlu skill teknis. Nggak perlu nunggu lama. Tim kami bantu setup sampai bot-mu beneran jalan.</p>
       </div>
 
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
-        <!-- Kartu Trial (Terang) -->
-        <div class="flex flex-col rounded-3xl border border-[#F0E6DC] bg-white p-8 shadow-soft">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-[0.14em] text-[#6E655F]">Trial 14 hari</span>
-            <span class="rounded-full bg-[#FDF3EB] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#E04F00]">Gratis</span>
-          </div>
-          <div class="mt-6 flex items-baseline gap-2">
-            <span class="text-5xl font-extrabold tracking-tight text-[#18181B]">Rp0</span>
-            <span class="text-[#6E655F]">/ 14 hari pertama</span>
-          </div>
-          <p class="mt-3 text-[#6E655F]">Coba semua fitur inti tanpa bayar, tanpa kartu kredit.</p>
-          <ul class="mt-7 space-y-3.5">
-            <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-600"><path d="M5 13l4 4L19 7"/></svg>
-              <span class="text-[#18181B]">Akses penuh selama 14 hari</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-600"><path d="M5 13l4 4L19 7"/></svg>
-              <span class="text-[#18181B]">Catatan pesanan dari chat</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-600"><path d="M5 13l4 4L19 7"/></svg>
-              <span class="text-[#18181B]">Satu toko, tanpa batas jumlah pembeli</span>
-            </li>
-          </ul>
-          <div class="mt-8 flex-1"></div>
-          <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full border border-[#E7DCD1] bg-white px-6 py-3.5 font-bold text-[#18181B] transition hover:border-[#E04F00] hover:text-[#E04F00]">Klaim trial sekarang</a>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 text-center shadow-soft">
+          <span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#FDF3EB] text-2xl font-extrabold text-[#E04F00]">1</span>
+          <h3 class="mt-5 text-lg font-extrabold text-[#18181B]">Daftar & isi form</h3>
+          <p class="mt-2 text-[#6E655F] leading-relaxed">Isi form singkat di bawah — nama toko, jenis usaha, dan nomor WhatsApp. Selesai dalam 60 detik.</p>
         </div>
-        <!-- Kartu Berlangganan (Gelap) -->
-        <div class="flex flex-col rounded-3xl bg-[#1F1209] p-8 text-white shadow-soft">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold uppercase tracking-[0.14em] text-white/60">Berlangganan</span>
-            <span class="rounded-full bg-[#E04F00] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">Setelah trial</span>
-          </div>
-          <div class="mt-6 flex items-baseline gap-2">
-            <span class="text-5xl font-extrabold tracking-tight">Rp79.000</span>
-            <span class="text-white/60">/ bulan</span>
-          </div>
-          <p class="mt-3 text-white/70">Lanjutkan semua yang sudah kamu siapkan selama trial, plus laporan bulanan.</p>
-          <ul class="mt-7 space-y-3.5">
-            <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
-              <span>Semua fitur paket trial</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
-              <span>Laporan penjualan bulanan</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
-              <span>Bisa dibatalkan kapan saja</span>
-            </li>
-          </ul>
-          <div class="mt-8 flex-1"></div>
-          <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full bg-[#E04F00] px-6 py-3.5 font-bold text-white transition hover:bg-[#C24300]">Mulai dari trial dulu</a>
+        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 text-center shadow-soft">
+          <span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#FDF3EB] text-2xl font-extrabold text-[#E04F00]">2</span>
+          <h3 class="mt-5 text-lg font-extrabold text-[#18181B]">Tim kami hubungi & bantu setup</h3>
+          <p class="mt-2 text-[#6E655F] leading-relaxed">Tim LarisinAja langsung kontak kamu via WhatsApp. Scan QR bareng, dan bot langsung terhubung ke nomormu.</p>
+        </div>
+        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 text-center shadow-soft">
+          <span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#FDF3EB] text-2xl font-extrabold text-[#E04F00]">3</span>
+          <h3 class="mt-5 text-lg font-extrabold text-[#18181B]">Bot aktif, kamu santai</h3>
+          <p class="mt-2 text-[#6E655F] leading-relaxed">Bot mulai balas chat, kirim katalog, dan rekap pesanan ke Google Sheets. Kamu fokus ke hal yang lebih penting.</p>
         </div>
       </div>
-
-      <p class="mt-6 text-center text-sm text-[#6E655F]">Harga berlangganan ditagihkan setelah masa trial 14 hari selesai, jika kamu memilih lanjut.</p>
     </section>
 
-    <!-- ====================== E. FORM KLAIM TRIAL ====================== -->
-    <section id="form-trial" class="mx-auto max-w-6xl scroll-mt-24 px-5 py-16 sm:px-8 md:py-24">
+    <!-- ========================== F. TESTIMONI ========================== -->
+    <section id="testimoni" class="scroll-mt-20 bg-[#FDF3EB] px-5 py-16 sm:px-8 md:py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center">
+          <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Kata mereka yang sudah coba</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Pemilik UMKM sudah merasakannya</h2>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <!-- Testimoni 1 -->
+          <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft">
+            <div class="flex items-center gap-1 text-[#E04F00]">
+              ★★★★★
+            </div>
+            <p class="mt-4 leading-relaxed text-[#18181B]">"Dulu tiap malam harus balas chat sendiri, sekarang bot yang kerja. Pesanan nggak ada yang ketinggalan, langsung masuk Sheets. Worth banget!"</p>
+            <div class="mt-5 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">BS</div>
+              <div>
+                <p class="font-bold text-[#18181B]">Bu Sari</p>
+                <p class="text-sm text-[#6E655F]">Warung Makan Bu Sari, Surabaya</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimoni 2 -->
+          <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft">
+            <div class="flex items-center gap-1 text-[#E04F00]">
+              ★★★★★
+            </div>
+            <p class="mt-4 leading-relaxed text-[#18181B]">"Setup-nya gampang banget, dibantu langsung sama tim. 2 menit beneran udah jalan. Catalog produkku sekarang kekirim otomatis, pelanggan seneng."</p>
+            <div class="mt-5 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">RP</div>
+              <div>
+                <p class="font-bold text-[#18181B]">Rudi P.</p>
+                <p class="text-sm text-[#6E655F]">Toko Pakaian Online, Bandung</p>
+              </div>
+            </div>
+          </div>
+          <!-- Testimoni 3 -->
+          <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft">
+            <div class="flex items-center gap-1 text-[#E04F00]">
+              ★★★★★
+            </div>
+            <p class="mt-4 leading-relaxed text-[#18181B]">"Awalnya ragu, tapi trial 14 hari tanpa bayar bikin saya coba. Ternyata keren! Pelanggan nggak nunggu lama, dan saya bisa fokus masak tanpa ganggu HP."</p>
+            <div class="mt-5 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">DN</div>
+              <div>
+                <p class="font-bold text-[#18181B]">Dewi N.</p>
+                <p class="text-sm text-[#6E655F]">Katering Harian, Jakarta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== G. FORM KLAIM TRIAL ====================== -->
+    <section id="form-trial" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 md:py-24">
       <div class="grid gap-12 md:grid-cols-2 lg:gap-16">
 
         <!-- Kolom Kiri: Penjelasan Alur -->
         <div>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Ambil trial mu sekarang</h2>
-          <p class="mt-4 max-w-md text-[#6E655F]">Isi data tokomu, lalu tim kami menghubungi lewat WhatsApp untuk mengaktifkan akses trial.</p>
+          <span class="inline-flex items-center gap-2 rounded-full border border-[#F0E6DC] bg-[#FDF3EB] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[#E04F00]">
+            🎁 Trial 14 hari — gratis!
+          </span>
+          <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">
+            Coba dulu, bayar nanti — kalau cocok
+          </h2>
+          <p class="mt-4 max-w-md text-[#6E655F] leading-relaxed">
+            Isi form singkat ini. Tim kami langsung hubungi kamu via WhatsApp dan bantu setup bot-mu sampai jalan dalam 2 menit. Nggak ada kartu kredit, nggak ada syarat ribet.
+          </p>
 
           <ol class="mt-8 space-y-5">
             <li class="flex items-start gap-4">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">1</span>
               <div>
-                <p class="font-bold text-[#18181B]">Isi data toko</p>
-                <!-- <p class="text-sm text-[#6E655F]">cukup satu form singkat.</p> -->
+                <p class="font-bold text-[#18181B]">Isi form di samping</p>
+                <p class="mt-1 text-sm text-[#6E655F]">Cuma 3 field, selesai dalam 30 detik.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">2</span>
               <div>
-                <p class="font-bold text-[#18181B]">Dihubungi via WhatsApp</p>
-                <!-- <p class="text-sm text-[#6E655F]">untuk konfirmasi dan aktivasi.</p> -->
+                <p class="font-bold text-[#18181B]">Tim kami hubungi via WhatsApp</p>
+                <p class="mt-1 text-sm text-[#6E655F]">Bantu scan QR sampai bot aktif. Gratis, tanpa biaya setup.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
               <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">3</span>
               <div>
-                <p class="font-bold text-[#18181B]">Mulai trial</p>
-                <!-- <p class="text-sm text-[#6E655F]">14 hari penuh, tanpa biaya.</p> -->
+                <p class="font-bold text-[#18181B]">Bot aktif & langsung kerja</p>
+                <p class="mt-1 text-sm text-[#6E655F]">14 hari penuh akses gratis. Kamu santai, bot yang sibuk.</p>
               </div>
             </li>
           </ol>
@@ -384,19 +516,76 @@
       </div>
     </section>
 
-    <!-- ============================ F. FOOTER ============================ -->
+    <!-- ============================ H. FOOTER ============================ -->
     <footer class="bg-[#1F1209] text-white">
-      <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-12 sm:px-8 md:flex-row md:items-center">
-        <a href="#top" class="flex items-center gap-2.5" aria-label="Larisin aja">
-          <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E04F00]">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-white"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clip-rule="evenodd"/></svg>
-          </span>
-          <span class="text-lg font-extrabold tracking-tight">Larisin aja</span>
-        </a>
-        <p class="max-w-md text-sm leading-relaxed text-white/70">
-          Larisin aja, bantu UMKM Indonesia yang jualan lewat chat.
-          <a href="#form-trial" class="ml-1 font-semibold text-white underline underline-offset-4 hover:text-[#FF8A50]">Klaim trial 14 hari</a>
-        </p>
+      <div class="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+        <!-- Grid 3 Kolom -->
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- Kolom 1: Info & Kontak -->
+          <div>
+            <a href="#top" class="inline-flex items-center gap-2.5 mb-4" aria-label="LarisinAja">
+              <img src="assets/img/logo.jpeg" alt="LarisinAja Logo" class="h-9 w-9 rounded-xl object-cover" />
+              <span class="text-lg font-extrabold tracking-tight">LarisinAja</span>
+            </a>
+            <address class="not-italic mt-4 space-y-3 text-sm text-white/70 leading-relaxed">
+              <p>
+                Jl. Broadband Multimedia Nomor 5A<br/>
+                RT 67 / RW 67
+              </p>
+              <a href="mailto:larisinaja@gmail.com" class="flex items-center gap-2.5 hover:text-white transition">
+                <!-- Ikon amplop -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-4 w-4 shrink-0 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                larisinaja@gmail.com
+              </a>
+              <a href="tel:+6282211373055" class="flex items-center gap-2.5 hover:text-white transition">
+                <!-- Ikon telepon -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-4 w-4 shrink-0 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                (+62) 822-1137-3055
+              </a>
+            </address>
+          </div>
+
+          <!-- Kolom 2: Navigasi -->
+          <div>
+            <p class="font-bold text-white mb-4">Jelajahi</p>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li><a href="#top"       class="hover:text-white transition">Home</a></li>
+              <li><a href="#benefit"   class="hover:text-white transition">Benefit</a></li>
+              <li><a href="#fitur"     class="hover:text-white transition">Product</a></li>
+              <li><a href="#cara-kerja" class="hover:text-white transition">About Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Kolom 3: Media Sosial -->
+          <div>
+            <p class="font-bold text-white mb-4">Media sosial</p>
+            <div class="flex flex-wrap gap-3">
+              <!-- Facebook -->
+              <a href="#" aria-label="Facebook" class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#E04F00]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+              </a>
+              <!-- Instagram -->
+              <a href="#" aria-label="Instagram" class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#E04F00]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              </a>
+              <!-- TikTok -->
+              <a href="#" aria-label="TikTok" class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#E04F00]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.21 8.21 0 0 0 4.79 1.52V6.76a4.85 4.85 0 0 1-1.02-.07Z"/></svg>
+              </a>
+              <!-- YouTube -->
+              <a href="#" aria-label="YouTube" class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-white transition hover:bg-[#E04F00]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider & Copyright -->
+        <div class="mt-12 border-t border-white/10 pt-6 flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-between">
+          <p class="text-sm text-white/50">© 2026 LarisinAja. Semua hak dilindungi.</p>
+          <a href="#form-trial" class="text-sm font-semibold text-white/70 hover:text-white transition underline underline-offset-4">Klaim trial 14 hari gratis →</a>
+        </div>
       </div>
     </footer>
 
@@ -443,7 +632,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-white"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z" clip-rule="evenodd"/></svg>
             </div>
             <div class="flex-1">
-              <p class="font-bold leading-tight">Larisin aja</p>
+              <p class="font-bold leading-tight">LarisinAja</p>
               <p class="text-xs text-white/70">online</p>
             </div>
           </div>
@@ -470,5 +659,38 @@
   </main>
 
   <script src="assets/js/script.js"></script>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('menuToggle');
+      const menu   = document.getElementById('mobileMenu');
+      const iconH  = document.getElementById('iconHamburger');
+      const iconC  = document.getElementById('iconClose');
+      if (!toggle || !menu) return;
+
+      function closeMenu() {
+        menu.classList.add('hidden');
+        iconH.classList.remove('hidden');
+        iconC.classList.add('hidden');
+      }
+
+      toggle.addEventListener('click', function() {
+        const isOpen = !menu.classList.contains('hidden');
+        if (isOpen) {
+          closeMenu();
+        } else {
+          menu.classList.remove('hidden');
+          iconH.classList.add('hidden');
+          iconC.classList.remove('hidden');
+        }
+      });
+
+      // Tutup menu saat link di-klik
+      document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
 </body>
 </html>
