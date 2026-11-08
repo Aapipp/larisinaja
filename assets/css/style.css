@@ -70,7 +70,6 @@ html[data-motion="lite"] header {
 .carousel-viewport {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
-  contain: paint;
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
