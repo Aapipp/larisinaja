@@ -1,7 +1,10 @@
 /* =========================================================================
-   LARISIN AJA — Custom styles (Responsive Motion & Smooth Mobile)
-   Sesuai motion smooth.md: hardware acceleration, forced-dark-mode fix,
-   scroll padding, dan lite-motion fallback untuk performa 60-120fps di HP.
+   LARISIN AJA — Custom styles (Responsive Motion & Mobile-Safe CSS)
+   Sesuai motion smooth.md & perbaikan layout mobile:
+   - box-sizing: border-box & full responsiveness
+   - overflow-wrap & word-break untuk mencegah teks terpotong di tepi kanan
+   - hero section padding-top 90px agar tidak ketutup navbar sticky/fixed
+   - lite-motion & forced dark mode protection
    ========================================================================= */
 
 :root {
@@ -9,21 +12,51 @@
   --header-height: 4rem;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-height) + 1rem);
-  -webkit-text-size-adjust: 100%;
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1.5rem);
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   background-color: #FDFBF7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cegah teks meluap / keluar dari tepi kanan layar */
+p, h1, h2, h3, h4, h5, h6, span, li, a, label, button, div {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Offset hero agar tidak ketutup navbar fixed/sticky */
+.hero-section {
+  padding-top: 90px !important;
+}
+
+@media (min-width: 640px) {
+  .hero-section {
+    padding-top: 70px !important;
+  }
 }
 
 /* Reduced motion & machine-level lite fallback */
@@ -65,11 +98,15 @@ html[data-motion="lite"] header {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .carousel-viewport {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 100%;
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }

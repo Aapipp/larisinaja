@@ -2,7 +2,7 @@
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light only" />
   <title>Larisin aja — Biar obrolan jadi pesanan</title>
   <meta name="description" content="Larisin aja merapikan chat WhatsApp yang menumpuk jadi daftar pesanan yang jelas. Trial 14 hari gratis, tanpa kartu kredit." />
@@ -59,7 +59,6 @@
           src="assets/img/logooren.jpeg"
           alt="LarisinAja Logo"
           class="h-8 w-8 sm:h-9 sm:w-9 rounded-xl object-cover shadow-sm shrink-0"
-          style="min-width:32px;"
         />
         <span class="text-base sm:text-lg font-extrabold tracking-tight whitespace-nowrap">Larisin&nbsp;<span class="text-[#E04F00]">aja</span></span>
       </a>
@@ -99,14 +98,14 @@
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" class="w-full max-w-full">
     <!-- ============================ B. HERO ============================ -->
-    <section class="hero-gradient relative overflow-hidden">
-      <div class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-8 sm:gap-12 sm:px-8 sm:py-14 md:grid-cols-2 md:py-20 lg:gap-16">
+    <section class="hero-gradient hero-section relative overflow-hidden w-full max-w-full" style="padding-top: 90px;">
+      <div class="mx-auto grid max-w-6xl w-full items-center gap-8 px-4 pb-10 pt-4 sm:gap-12 sm:px-8 sm:py-14 md:grid-cols-2 md:py-20 lg:gap-16">
 
         <!-- Kolom Kiri -->
-        <div class="animate-fadeUp">
-          <h1 class="text-3xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+        <div class="animate-fadeUp w-full max-w-full">
+          <h1 class="text-3xl font-extrabold leading-[1.14] tracking-tight sm:text-5xl lg:text-6xl">
             <span class="block text-[#18181B]">Larisin aja,</span>
             <span class="block text-[#E04F00]">biar obrolan</span>
             <span class="block text-[#E04F00]">jadi pesanan.</span>
@@ -125,19 +124,19 @@
         </div>
 
         <!-- Kolom Kanan: Interactive Card Carousel -->
-        <div class="animate-fadeUp">
-          <div id="heroCard" class="relative rounded-2xl border border-[#F0E6DC] bg-white p-4 shadow-soft sm:rounded-3xl sm:p-8">
-            <div id="carouselViewport" class="carousel-viewport overflow-hidden">
-              <div id="carouselTrack" class="carousel-track flex">
+        <div class="animate-fadeUp w-full max-w-full">
+          <div id="heroCard" class="relative w-full max-w-full rounded-2xl border border-[#F0E6DC] bg-white p-4 shadow-soft sm:rounded-3xl sm:p-8">
+            <div id="carouselViewport" class="carousel-viewport w-full max-w-full overflow-hidden">
+              <div id="carouselTrack" class="carousel-track flex w-full max-w-full">
 
                 <!-- Slide 1 -->
-                <div class="w-full shrink-0 min-w-full">
+                <div class="w-full shrink-0 max-w-full">
                   <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FDF3EB] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#E04F00] sm:px-3 sm:py-1.5 sm:text-[11px]">
                     <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Chat menumpuk
                   </span>
                   <h3 class="mt-2.5 text-lg font-extrabold text-[#18181B] sm:mt-4 sm:text-2xl">Sibuk buat bales chat?</h3>
                   <p class="mt-1 text-xs text-[#6E655F] sm:mt-2 sm:text-sm">Pesan masuk terus, tapi stok dan harga harus dicek satu per satu dulu.</p>
-                  <div class="mt-3.5 space-y-2 rounded-xl bg-[#FDF3EB] p-3 sm:mt-6 sm:space-y-3 sm:rounded-2xl sm:p-4">
+                  <div class="mt-3.5 space-y-2 rounded-xl bg-[#FDF3EB] p-3 sm:mt-6 sm:space-y-3 sm:rounded-2xl sm:p-4 w-full max-w-full">
                     <div class="flex justify-start">
                       <div class="max-w-[85%] rounded-2xl rounded-tl-md bg-white px-3.5 py-2 text-xs text-[#18181B] shadow-sm sm:max-w-[80%] sm:px-4 sm:py-2.5 sm:text-sm">Kak, ini masih ada ukuran L?</div>
                     </div>
@@ -151,20 +150,20 @@
                 </div>
 
                 <!-- Slide 2 -->
-                <div class="w-full shrink-0 min-w-full">
+                <div class="w-full shrink-0 max-w-full">
                   <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FDF3EB] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#E04F00] sm:px-3 sm:py-1.5 sm:text-[11px]">
                     <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Stok &amp; harga
                   </span>
                   <h3 class="mt-2.5 text-lg font-extrabold text-[#18181B] sm:mt-4 sm:text-2xl">Stok &amp; harga otomatis dicek</h3>
                   <p class="mt-1 text-xs text-[#6E655F] sm:mt-2 sm:text-sm">Bot langsung mengecek ketersediaan produk dan harga, jadi jawaban ke pembeli selalu akurat.</p>
-                  <div class="mt-3.5 space-y-2 rounded-xl bg-[#FDF3EB] p-3 sm:mt-6 sm:space-y-3 sm:rounded-2xl sm:p-4">
+                  <div class="mt-3.5 space-y-2 rounded-xl bg-[#FDF3EB] p-3 sm:mt-6 sm:space-y-3 sm:rounded-2xl sm:p-4 w-full max-w-full">
                     <div class="flex justify-start">
                       <div class="max-w-[85%] rounded-2xl rounded-tl-md bg-white px-3.5 py-2 text-xs text-[#18181B] shadow-sm sm:max-w-[80%] sm:px-4 sm:py-2.5 sm:text-sm">Kak, ukuran L masih ready nggak?</div>
                     </div>
                     <div class="flex justify-end">
                       <div class="max-w-[85%] rounded-2xl rounded-tr-md bg-[#E04F00] px-3.5 py-2 text-xs font-medium text-white shadow-sm sm:max-w-[80%] sm:px-4 sm:py-2.5 sm:text-sm">Bentar kak, aku cek dulu ya.</div>
                     </div>
-                    <div class="rounded-xl border border-[#F0E6DC] bg-white p-2.5 shadow-sm sm:rounded-2xl sm:p-3.5">
+                    <div class="rounded-xl border border-[#F0E6DC] bg-white p-2.5 shadow-sm sm:rounded-2xl sm:p-3.5 w-full max-w-full">
                       <div class="flex items-center justify-between gap-2 text-xs sm:text-sm">
                         <span class="font-bold text-[#18181B]">Ukuran L</span>
                         <span class="rounded-full bg-[#EAF7EE] px-2 py-0.5 text-[11px] font-bold text-green-700 sm:px-2.5 sm:py-1 sm:text-xs">Stok tersedia</span>
@@ -178,14 +177,14 @@
                 </div>
 
                 <!-- Slide 3 -->
-                <div class="w-full shrink-0 min-w-full">
+                <div class="w-full shrink-0 max-w-full">
                   <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FDF3EB] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#E04F00] sm:px-3 sm:py-1.5 sm:text-[11px]">
                     <span class="h-1.5 w-1.5 rounded-full bg-[#E04F00]"></span> Pesanan tercatat
                   </span>
                   <h3 class="mt-2.5 text-lg font-extrabold text-[#18181B] sm:mt-4 sm:text-2xl">Pesanan langsung tercatat rapi</h3>
                   <p class="mt-1 text-xs text-[#6E655F] sm:mt-2 sm:text-sm">Setiap obrolan berubah jadi catatan pesanan lengkap dengan status pembayaran.</p>
-                  <div class="mt-3.5 space-y-2 rounded-xl bg-[#FDF3EB] p-3 sm:mt-6 sm:space-y-2.5 sm:rounded-2xl sm:p-4">
-                    <div class="rounded-lg bg-white p-2.5 shadow-sm sm:rounded-xl sm:p-3.5">
+                  <div class="mt-3.5 space-y-2 rounded-xl bg-[#FDF3EB] p-3 sm:mt-6 sm:space-y-2.5 sm:rounded-2xl sm:p-4 w-full max-w-full">
+                    <div class="rounded-lg bg-white p-2.5 shadow-sm sm:rounded-xl sm:p-3.5 w-full max-w-full">
                       <div class="flex items-center justify-between">
                         <span class="text-xs font-bold text-[#18181B] sm:text-sm">Pesanan #011</span>
                         <span class="rounded-full bg-[#FDF3EB] px-2 py-0.5 text-[10px] font-bold text-[#E04F00] sm:px-2.5 sm:py-1 sm:text-xs">Baru</span>
@@ -196,7 +195,7 @@
                         Menunggu pembayaran
                       </p>
                     </div>
-                    <div class="rounded-lg bg-white p-2.5 shadow-sm sm:rounded-xl sm:p-3.5">
+                    <div class="rounded-lg bg-white p-2.5 shadow-sm sm:rounded-xl sm:p-3.5 w-full max-w-full">
                       <div class="flex items-center justify-between">
                         <span class="text-xs font-bold text-[#18181B] sm:text-sm">Pesanan #010</span>
                         <span class="rounded-full bg-[#EAF7EE] px-2 py-0.5 text-[10px] font-bold text-green-700 sm:px-2.5 sm:py-1 sm:text-xs">Lunas</span>
@@ -236,174 +235,174 @@
     </section>
 
     <!-- ====================== C. VALUE PROPOSITION ====================== -->
-    <section id="benefit" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 md:py-24">
-      <h2 class="mt-3 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-[#18181B] sm:text-4xl">
+    <section id="benefit" class="mx-auto max-w-6xl w-full scroll-mt-24 px-4 py-12 sm:px-8 sm:py-16 md:py-24">
+      <h2 class="mt-3 max-w-2xl text-2xl font-extrabold leading-tight tracking-tight text-[#18181B] sm:text-4xl">
         Tiga pekerjaan repot, dikerjakan sekali jalan
       </h2>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="mt-8 sm:mt-10 grid gap-5 sm:gap-6 md:grid-cols-3 w-full">
         <!-- Kartu 1 -->
-        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft transition hover:-translate-y-1">
+        <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 shadow-soft transition hover:-translate-y-1">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FDF3EB]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
           </div>
-          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Chat jadi pesanan</h3>
-          <p class="mt-2 leading-relaxed text-[#6E655F]">Ubah obrolan pembeli menjadi catatan pesanan tanpa mengetik ulang.</p>
+          <h3 class="mt-4 sm:mt-5 text-lg sm:text-xl font-extrabold text-[#18181B]">Chat jadi pesanan</h3>
+          <p class="mt-2 text-sm sm:text-base leading-relaxed text-[#6E655F]">Ubah obrolan pembeli menjadi catatan pesanan tanpa mengetik ulang.</p>
         </div>
 
         <!-- Kartu 2 -->
-        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft transition hover:-translate-y-1">
+        <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 shadow-soft transition hover:-translate-y-1">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FDF3EB]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
           </div>
-          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Pesanan tersusun</h3>
-          <p class="mt-2 leading-relaxed text-[#6E655F]">Lihat status pesanan dan pembayaran dalam satu daftar yang mudah dicek.</p>
+          <h3 class="mt-4 sm:mt-5 text-lg sm:text-xl font-extrabold text-[#18181B]">Pesanan tersusun</h3>
+          <p class="mt-2 text-sm sm:text-base leading-relaxed text-[#6E655F]">Lihat status pesanan dan pembayaran dalam satu daftar yang mudah dicek.</p>
         </div>
 
         <!-- Kartu 3 -->
-        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft transition hover:-translate-y-1">
+        <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 shadow-soft transition hover:-translate-y-1">
           <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FDF3EB]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="h-6 w-6 text-[#E04F00]"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75Zm6.75-4.5c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625Zm6.75-4.5c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
           </div>
-          <h3 class="mt-5 text-xl font-extrabold text-[#18181B]">Laporan sederhana</h3>
-          <p class="mt-2 leading-relaxed text-[#6E655F]">Tahu produk mana yang paling sering ditanya pembeli minggu ini.</p>
+          <h3 class="mt-4 sm:mt-5 text-lg sm:text-xl font-extrabold text-[#18181B]">Laporan sederhana</h3>
+          <p class="mt-2 text-sm sm:text-base leading-relaxed text-[#6E655F]">Tahu produk mana yang paling sering ditanya pembeli minggu ini.</p>
         </div>
       </div>
     </section>
 
     <!-- ========================== D. PRICING ========================== -->
-    <section id="pricing" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 md:py-24">
-      <div class="text-center">
+    <section id="pricing" class="mx-auto max-w-6xl w-full scroll-mt-24 px-4 py-12 sm:px-8 sm:py-16 md:py-24">
+      <div class="text-center w-full">
         <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Pilihan paket</p>
-        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Mulai dari trial, lanjut saat cocok</h2>
-        <p class="mx-auto mt-4 max-w-2xl text-[#6E655F]">Trial 14 hari memberi akses penuh. Setelah itu kamu bebas memilih untuk melanjutkan berlangganan atau tidak.</p>
+        <h2 class="mt-2.5 sm:mt-3 text-2xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Mulai dari trial, lanjut saat cocok</h2>
+        <p class="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base text-[#6E655F]">Trial 14 hari memberi akses penuh. Setelah itu kamu bebas memilih untuk melanjutkan berlangganan atau tidak.</p>
       </div>
 
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
+      <div class="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:gap-8 w-full">
         <!-- Kartu Trial (Terang) -->
-        <div class="flex flex-col rounded-3xl border border-[#F0E6DC] bg-white p-8 shadow-soft">
+        <div class="flex flex-col w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-8 shadow-soft">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-[0.14em] text-[#6E655F]">Trial 14 hari</span>
             <span class="rounded-full bg-[#FDF3EB] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#E04F00]">Gratis</span>
           </div>
-          <div class="mt-6 flex items-baseline gap-2">
-            <span class="text-5xl font-extrabold tracking-tight text-[#18181B]">Rp0</span>
-            <span class="text-[#6E655F]">/ 14 hari pertama</span>
+          <div class="mt-5 sm:mt-6 flex items-baseline gap-2">
+            <span class="text-4xl sm:text-5xl font-extrabold tracking-tight text-[#18181B]">Rp0</span>
+            <span class="text-xs sm:text-sm text-[#6E655F]">/ 14 hari pertama</span>
           </div>
-          <p class="mt-3 text-[#6E655F]">Coba semua fitur inti tanpa bayar, tanpa kartu kredit.</p>
-          <ul class="mt-7 space-y-3.5">
-            <li class="flex items-start gap-3">
+          <p class="mt-2.5 sm:mt-3 text-sm text-[#6E655F]">Coba semua fitur inti tanpa bayar, tanpa kartu kredit.</p>
+          <ul class="mt-6 sm:mt-7 space-y-3 sm:space-y-3.5 text-sm sm:text-base">
+            <li class="flex items-start gap-2.5 sm:gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-600"><path d="M5 13l4 4L19 7"/></svg>
               <span class="text-[#18181B]">Akses penuh selama 14 hari</span>
             </li>
-            <li class="flex items-start gap-3">
+            <li class="flex items-start gap-2.5 sm:gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-600"><path d="M5 13l4 4L19 7"/></svg>
               <span class="text-[#18181B]">Catatan pesanan dari chat</span>
             </li>
-            <li class="flex items-start gap-3">
+            <li class="flex items-start gap-2.5 sm:gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-green-600"><path d="M5 13l4 4L19 7"/></svg>
               <span class="text-[#18181B]">Satu toko, tanpa batas jumlah pembeli</span>
             </li>
           </ul>
-          <div class="mt-8 flex-1"></div>
-          <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full border border-[#E7DCD1] bg-white px-6 py-3.5 font-bold text-[#18181B] transition hover:border-[#E04F00] hover:text-[#E04F00]">Klaim trial sekarang</a>
+          <div class="mt-6 sm:mt-8 flex-1"></div>
+          <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full border border-[#E7DCD1] bg-white px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-bold text-[#18181B] transition hover:border-[#E04F00] hover:text-[#E04F00]">Klaim trial sekarang</a>
         </div>
 
         <!-- Kartu Berlangganan (Gelap) -->
-        <div class="flex flex-col rounded-3xl bg-[#1F1209] p-8 text-white shadow-soft">
+        <div class="flex flex-col w-full max-w-full rounded-2xl sm:rounded-3xl bg-[#1F1209] p-5 sm:p-8 text-white shadow-soft">
           <div class="flex items-center justify-between">
             <span class="text-xs font-bold uppercase tracking-[0.14em] text-white/60">Berlangganan</span>
             <span class="rounded-full bg-[#E04F00] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">Setelah trial</span>
           </div>
-          <div class="mt-6 flex items-baseline gap-2">
-            <span class="text-5xl font-extrabold tracking-tight">Rp149.000</span>
-            <span class="text-white/60">/ bulan</span>
+          <div class="mt-5 sm:mt-6 flex items-baseline gap-2">
+            <span class="text-4xl sm:text-5xl font-extrabold tracking-tight">Rp149.000</span>
+            <span class="text-xs sm:text-sm text-white/60">/ bulan</span>
           </div>
-          <p class="mt-3 text-white/70">Lanjutkan semua yang sudah kamu siapkan selama trial, plus laporan bulanan.</p>
-          <ul class="mt-7 space-y-3.5">
-            <li class="flex items-start gap-3">
+          <p class="mt-2.5 sm:mt-3 text-sm text-white/70">Lanjutkan semua yang sudah kamu siapkan selama trial, plus laporan bulanan.</p>
+          <ul class="mt-6 sm:mt-7 space-y-3 sm:space-y-3.5 text-sm sm:text-base">
+            <li class="flex items-start gap-2.5 sm:gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
               <span>Semua fitur paket trial</span>
             </li>
-            <li class="flex items-start gap-3">
+            <li class="flex items-start gap-2.5 sm:gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
               <span>Laporan penjualan bulanan</span>
             </li>
-            <li class="flex items-start gap-3">
+            <li class="flex items-start gap-2.5 sm:gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-1 h-4 w-4 shrink-0 text-[#E04F00]"><path d="M5 13l4 4L19 7"/></svg>
               <span>Bisa dibatalkan kapan saja</span>
             </li>
           </ul>
-          <div class="mt-8 flex-1"></div>
-          <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full bg-[#E04F00] px-6 py-3.5 font-bold text-white transition hover:bg-[#C24300]">Mulai dari trial dulu</a>
+          <div class="mt-6 sm:mt-8 flex-1"></div>
+          <a href="#form-trial" class="inline-flex w-full items-center justify-center rounded-full bg-[#E04F00] px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-bold text-white transition hover:bg-[#C24300]">Mulai dari trial dulu</a>
         </div>
       </div>
 
-      <p class="mt-6 text-center text-sm text-[#6E655F]">Harga berlangganan ditagihkan setelah masa trial 14 hari selesai, jika kamu memilih lanjut.</p>
+      <p class="mt-5 sm:mt-6 text-center text-xs sm:text-sm text-[#6E655F]">Harga berlangganan ditagihkan setelah masa trial 14 hari selesai, jika kamu memilih lanjut.</p>
     </section>
 
     <!-- ========================== E. CARA KERJA ========================== -->
-    <section id="cara-kerja" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 md:py-24">
-      <div class="text-center">
+    <section id="cara-kerja" class="mx-auto max-w-6xl w-full scroll-mt-24 px-4 py-12 sm:px-8 sm:py-16 md:py-24">
+      <div class="text-center w-full">
         <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Alur pemakaian</p>
-        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Cara kerja sederhana</h2>
-        <p class="mx-auto mt-4 max-w-xl text-[#6E655F]">Tiga langkah dari chat pembeli hingga pesanan tercatat rapi.</p>
+        <h2 class="mt-2.5 sm:mt-3 text-2xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Cara kerja sederhana</h2>
+        <p class="mx-auto mt-3 sm:mt-4 max-w-xl text-sm sm:text-base text-[#6E655F]">Tiga langkah dari chat pembeli hingga pesanan tercatat rapi.</p>
       </div>
 
-      <div class="mt-12 grid gap-6 md:grid-cols-3">
-        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 text-center shadow-soft">
-          <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#FDF3EB] text-xl font-extrabold text-[#E04F00]">1</span>
-          <h3 class="mt-5 text-lg font-extrabold text-[#18181B]">Hubungkan nomor</h3>
-          <p class="mt-2 text-[#6E655F] leading-relaxed">Hubungkan nomor WhatsApp tokomu lewat scan QR sederhana.</p>
+      <div class="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-3 w-full">
+        <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 text-center shadow-soft">
+          <span class="inline-flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#FDF3EB] text-lg sm:text-xl font-extrabold text-[#E04F00]">1</span>
+          <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-extrabold text-[#18181B]">Hubungkan nomor</h3>
+          <p class="mt-2 text-xs sm:text-sm text-[#6E655F] leading-relaxed">Hubungkan nomor WhatsApp tokomu lewat scan QR sederhana.</p>
         </div>
-        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 text-center shadow-soft">
-          <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#FDF3EB] text-xl font-extrabold text-[#E04F00]">2</span>
-          <h3 class="mt-5 text-lg font-extrabold text-[#18181B]">Atur menu / produk</h3>
-          <p class="mt-2 text-[#6E655F] leading-relaxed">Masukkan daftar produk dan harga yang sering ditanyakan pembeli.</p>
+        <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 text-center shadow-soft">
+          <span class="inline-flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#FDF3EB] text-lg sm:text-xl font-extrabold text-[#E04F00]">2</span>
+          <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-extrabold text-[#18181B]">Atur menu / produk</h3>
+          <p class="mt-2 text-xs sm:text-sm text-[#6E655F] leading-relaxed">Masukkan daftar produk dan harga yang sering ditanyakan pembeli.</p>
         </div>
-        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 text-center shadow-soft">
-          <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#FDF3EB] text-xl font-extrabold text-[#E04F00]">3</span>
-          <h3 class="mt-5 text-lg font-extrabold text-[#18181B]">Pesanan tercatat</h3>
-          <p class="mt-2 text-[#6E655F] leading-relaxed">Setiap chat yang selesai langsung terdaftar rapi tanpa kamu ketik ulang.</p>
+        <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 text-center shadow-soft">
+          <span class="inline-flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#FDF3EB] text-lg sm:text-xl font-extrabold text-[#E04F00]">3</span>
+          <h3 class="mt-4 sm:mt-5 text-base sm:text-lg font-extrabold text-[#18181B]">Pesanan tercatat</h3>
+          <p class="mt-2 text-xs sm:text-sm text-[#6E655F] leading-relaxed">Setiap chat yang selesai langsung terdaftar rapi tanpa kamu ketik ulang.</p>
         </div>
       </div>
     </section>
 
     <!-- ========================== F. TESTIMONI ========================== -->
-    <section id="testimoni" class="scroll-mt-20 bg-[#FDF3EB] px-5 py-16 sm:px-8 md:py-24">
-      <div class="mx-auto max-w-6xl">
-        <div class="text-center">
+    <section id="testimoni" class="scroll-mt-24 w-full bg-[#FDF3EB] px-4 py-12 sm:px-8 sm:py-16 md:py-24">
+      <div class="mx-auto max-w-6xl w-full">
+        <div class="text-center w-full">
           <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#E04F00]">Cerita pengguna</p>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Kata mereka yang sudah mencoba</h2>
+          <h2 class="mt-2.5 sm:mt-3 text-2xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Kata mereka yang sudah mencoba</h2>
         </div>
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
-          <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft">
-            <p class="leading-relaxed text-[#18181B]">"Chat masuk waktu malam tetap bisa dibalas dan langsung ada rekapannya. Nggak takut pesanan kelewat lagi."</p>
-            <div class="mt-5 flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">BS</div>
+        <div class="mt-8 sm:mt-12 grid gap-5 sm:gap-6 md:grid-cols-3 w-full">
+          <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 shadow-soft">
+            <p class="text-sm sm:text-base leading-relaxed text-[#18181B]">"Chat masuk waktu malam tetap bisa dibalas dan langsung ada rekapannya. Nggak takut pesanan kelewat lagi."</p>
+            <div class="mt-4 sm:mt-5 flex items-center gap-3">
+              <div class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-xs sm:text-sm font-extrabold text-[#E04F00]">BS</div>
               <div>
-                <p class="font-bold text-[#18181B]">Bu Sari</p>
-                <p class="text-sm text-[#6E655F]">Kuliner Rumahan</p>
+                <p class="text-sm sm:text-base font-bold text-[#18181B]">Bu Sari</p>
+                <p class="text-xs sm:text-sm text-[#6E655F]">Kuliner Rumahan</p>
               </div>
             </div>
           </div>
-          <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft">
-            <p class="leading-relaxed text-[#18181B]">"Biasanya bingung rekap dari chat ke catatan, sekarang tinggal cek daftar pesanan di pagi hari."</p>
-            <div class="mt-5 flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">RP</div>
+          <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 shadow-soft">
+            <p class="text-sm sm:text-base leading-relaxed text-[#18181B]">"Biasanya bingung rekap dari chat ke catatan, sekarang tinggal cek daftar pesanan di pagi hari."</p>
+            <div class="mt-4 sm:mt-5 flex items-center gap-3">
+              <div class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-xs sm:text-sm font-extrabold text-[#E04F00]">RP</div>
               <div>
-                <p class="font-bold text-[#18181B]">Rudi P.</p>
-                <p class="text-sm text-[#6E655F]">Toko Fashion</p>
+                <p class="text-sm sm:text-base font-bold text-[#18181B]">Rudi P.</p>
+                <p class="text-xs sm:text-sm text-[#6E655F]">Toko Fashion</p>
               </div>
             </div>
           </div>
-          <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft">
-            <p class="leading-relaxed text-[#18181B]">"Setup-nya dibantu sampai bisa. Cuma butuh beberapa menit dan langsung kepakai jualan."</p>
-            <div class="mt-5 flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">DN</div>
+          <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-7 shadow-soft">
+            <p class="text-sm sm:text-base leading-relaxed text-[#18181B]">"Setup-nya dibantu sampai bisa. Cuma butuh beberapa menit dan langsung kepakai jualan."</p>
+            <div class="mt-4 sm:mt-5 flex items-center gap-3">
+              <div class="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-xs sm:text-sm font-extrabold text-[#E04F00]">DN</div>
               <div>
-                <p class="font-bold text-[#18181B]">Dewi N.</p>
-                <p class="text-sm text-[#6E655F]">Snack &amp; Kue</p>
+                <p class="text-sm sm:text-base font-bold text-[#18181B]">Dewi N.</p>
+                <p class="text-xs sm:text-sm text-[#6E655F]">Snack &amp; Kue</p>
               </div>
             </div>
           </div>
@@ -412,54 +411,54 @@
     </section>
 
     <!-- ====================== G. FORM KLAIM TRIAL ====================== -->
-    <section id="form-trial" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 md:py-24">
-      <div class="grid gap-12 md:grid-cols-2 lg:gap-16">
+    <section id="form-trial" class="mx-auto max-w-6xl w-full scroll-mt-24 px-4 py-12 sm:px-8 sm:py-16 md:py-24">
+      <div class="grid gap-8 sm:gap-12 md:grid-cols-2 lg:gap-16 w-full">
 
         <!-- Kolom Kiri: Penjelasan Alur -->
-        <div>
-          <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Ambil trial mu sekarang</h2>
-          <p class="mt-4 max-w-md text-[#6E655F]">Isi data tokomu, lalu tim kami menghubungi lewat WhatsApp untuk mengaktifkan akses trial.</p>
+        <div class="w-full max-w-full">
+          <h2 class="mt-2.5 sm:mt-3 text-2xl font-extrabold tracking-tight text-[#18181B] sm:text-4xl">Ambil trial mu sekarang</h2>
+          <p class="mt-3 sm:mt-4 max-w-md text-sm sm:text-base text-[#6E655F]">Isi data tokomu, lalu tim kami menghubungi lewat WhatsApp untuk mengaktifkan akses trial.</p>
 
-          <ol class="mt-8 space-y-5">
-            <li class="flex items-start gap-4">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">1</span>
+          <ol class="mt-6 sm:mt-8 space-y-4 sm:space-y-5">
+            <li class="flex items-start gap-3.5 sm:gap-4">
+              <span class="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-xs sm:text-sm font-extrabold text-[#E04F00]">1</span>
               <div>
-                <p class="font-bold text-[#18181B]">Isi data toko</p>
-                <p class="text-sm text-[#6E655F]">Cukup satu form singkat di samping.</p>
+                <p class="font-bold text-sm sm:text-base text-[#18181B]">Isi data toko</p>
+                <p class="text-xs sm:text-sm text-[#6E655F]">Cukup satu form singkat di samping.</p>
               </div>
             </li>
-            <li class="flex items-start gap-4">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">2</span>
+            <li class="flex items-start gap-3.5 sm:gap-4">
+              <span class="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-xs sm:text-sm font-extrabold text-[#E04F00]">2</span>
               <div>
-                <p class="font-bold text-[#18181B]">Dihubungi via WhatsApp</p>
-                <p class="text-sm text-[#6E655F]">Untuk konfirmasi dan aktivasi akses.</p>
+                <p class="font-bold text-sm sm:text-base text-[#18181B]">Dihubungi via WhatsApp</p>
+                <p class="text-xs sm:text-sm text-[#6E655F]">Untuk konfirmasi dan aktivasi akses.</p>
               </div>
             </li>
-            <li class="flex items-start gap-4">
-              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-sm font-extrabold text-[#E04F00]">3</span>
+            <li class="flex items-start gap-3.5 sm:gap-4">
+              <span class="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full bg-[#FDF3EB] text-xs sm:text-sm font-extrabold text-[#E04F00]">3</span>
               <div>
-                <p class="font-bold text-[#18181B]">Mulai trial</p>
-                <p class="text-sm text-[#6E655F]">14 hari penuh, tanpa biaya.</p>
+                <p class="font-bold text-sm sm:text-base text-[#18181B]">Mulai trial</p>
+                <p class="text-xs sm:text-sm text-[#6E655F]">14 hari penuh, tanpa biaya.</p>
               </div>
             </li>
           </ol>
         </div>
 
         <!-- Kolom Kanan: Kartu Form -->
-        <div class="rounded-3xl border border-[#F0E6DC] bg-white p-7 shadow-soft sm:p-8">
-          <form id="claimForm" novalidate>
-            <div class="space-y-5">
+        <div class="w-full max-w-full rounded-2xl sm:rounded-3xl border border-[#F0E6DC] bg-white p-5 sm:p-8 shadow-soft">
+          <form id="claimForm" novalidate class="w-full max-w-full">
+            <div class="space-y-4 sm:space-y-5 w-full">
               <div>
-                <label for="nama_toko" class="mb-1.5 block text-sm font-bold text-[#18181B]">Nama toko</label>
+                <label for="nama_toko" class="mb-1.5 block text-xs sm:text-sm font-bold text-[#18181B]">Nama toko</label>
                 <input id="nama_toko" name="nama_toko" type="text" placeholder="Contoh: Warung Bu Ani" required
-                  class="w-full rounded-2xl border border-[#F0E6DC] bg-white px-4 py-3 text-[#18181B] placeholder-[#B7ACA2] outline-none transition focus:border-[#E04F00] focus:ring-2 focus:ring-[#E04F00]/15" />
-                <p id="err_nama_toko" class="mt-1.5 hidden text-sm font-medium text-red-600">Nama toko wajib diisi.</p>
+                  class="w-full rounded-xl sm:rounded-2xl border border-[#F0E6DC] bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-[#18181B] placeholder-[#B7ACA2] outline-none transition focus:border-[#E04F00] focus:ring-2 focus:ring-[#E04F00]/15" />
+                <p id="err_nama_toko" class="mt-1.5 hidden text-xs sm:text-sm font-medium text-red-600">Nama toko wajib diisi.</p>
               </div>
 
               <div>
-                <label for="kategori_usaha" class="mb-1.5 block text-sm font-bold text-[#18181B]">Kategori usaha</label>
+                <label for="kategori_usaha" class="mb-1.5 block text-xs sm:text-sm font-bold text-[#18181B]">Kategori usaha</label>
                 <select id="kategori_usaha" name="kategori_usaha" required
-                  class="w-full rounded-2xl border border-[#F0E6DC] bg-white px-4 py-3 text-[#18181B] outline-none transition focus:border-[#E04F00] focus:ring-2 focus:ring-[#E04F00]/15">
+                  class="w-full rounded-xl sm:rounded-2xl border border-[#F0E6DC] bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-[#18181B] outline-none transition focus:border-[#E04F00] focus:ring-2 focus:ring-[#E04F00]/15">
                   <option value="" selected disabled>Pilih kategori usaha</option>
                   <option value="Kuliner / Makanan &amp; Minuman">Kuliner / Makanan &amp; Minuman</option>
                   <option value="Fashion &amp; Pakaian">Fashion &amp; Pakaian</option>
@@ -467,18 +466,18 @@
                   <option value="Kebutuhan Harian / Sembako">Kebutuhan Harian / Sembako</option>
                   <option value="Lainnya">Lainnya</option>
                 </select>
-                <p id="err_kategori_usaha" class="mt-1.5 hidden text-sm font-medium text-red-600">Pilih kategori usaha dulu.</p>
+                <p id="err_kategori_usaha" class="mt-1.5 hidden text-xs sm:text-sm font-medium text-red-600">Pilih kategori usaha dulu.</p>
               </div>
 
               <div>
-                <label for="nomor_whatsapp" class="mb-1.5 block text-sm font-bold text-[#18181B]">Nomor WhatsApp</label>
+                <label for="nomor_whatsapp" class="mb-1.5 block text-xs sm:text-sm font-bold text-[#18181B]">Nomor WhatsApp</label>
                 <input id="nomor_whatsapp" name="nomor_whatsapp" type="tel" inputmode="tel" placeholder="0812 3456 7890" required
-                  class="w-full rounded-2xl border border-[#F0E6DC] bg-white px-4 py-3 text-[#18181B] placeholder-[#B7ACA2] outline-none transition focus:border-[#E04F00] focus:ring-2 focus:ring-[#E04F00]/15" />
-                <p class="mt-1.5 text-xs text-[#6E655F]">Gunakan nomor aktif yang bisa dihubungi via WhatsApp.</p>
-                <p id="err_nomor_whatsapp" class="mt-1 hidden text-sm font-medium text-red-600">Format nomor tidak valid. Contoh: 0812 3456 7890.</p>
+                  class="w-full rounded-xl sm:rounded-2xl border border-[#F0E6DC] bg-white px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-[#18181B] placeholder-[#B7ACA2] outline-none transition focus:border-[#E04F00] focus:ring-2 focus:ring-[#E04F00]/15" />
+                <p class="mt-1 text-xs text-[#6E655F]">Gunakan nomor aktif yang bisa dihubungi via WhatsApp.</p>
+                <p id="err_nomor_whatsapp" class="mt-1 hidden text-xs sm:text-sm font-medium text-red-600">Format nomor tidak valid. Contoh: 0812 3456 7890.</p>
               </div>
 
-              <button type="submit" id="submitBtn" class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#E04F00] px-6 py-4 text-base font-bold text-white transition hover:bg-[#C24300] disabled:cursor-not-allowed disabled:opacity-80">
+              <button type="submit" id="submitBtn" class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#E04F00] px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base font-bold text-white transition hover:bg-[#C24300] disabled:cursor-not-allowed disabled:opacity-80">
                 <svg id="submitSpinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="spin hidden h-5 w-5 text-white"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
                 <span id="submitBtnLabel">Submit klaim trial</span>
                 <svg id="submitArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
@@ -493,10 +492,10 @@
     </section>
 
     <!-- ============================ H. FOOTER ============================ -->
-    <footer class="bg-[#1F1209] text-white">
-      <div class="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+    <footer class="bg-[#1F1209] text-white w-full max-w-full">
+      <div class="mx-auto max-w-6xl w-full px-4 py-12 sm:px-8 sm:py-14">
         <!-- Grid 3 Kolom -->
-        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3 w-full">
 
           <!-- Kolom 1: Info & Kontak -->
           <div>
