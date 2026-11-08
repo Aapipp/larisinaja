@@ -1,0 +1,86 @@
+/* =========================================================================
+   LARISIN AJA — Custom styles
+   Melengkapi Tailwind CSS (Play CDN): animasi, carousel, modal & toast
+   ========================================================================= */
+
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+.hero-gradient {
+  background:
+    radial-gradient(55% 55% at 78% 12%, #FFE4CF 0%, rgba(255,228,207,0) 62%),
+    radial-gradient(45% 45% at 6% 92%, #FFF1E3 0%, rgba(255,241,227,0) 60%),
+    #FDFBF7;
+}
+
+.carousel-track { transition: transform .55s cubic-bezier(.22,1,.36,1); }
+.carousel-viewport { touch-action: pan-y; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fadeUp { animation: fadeUp .45s ease both; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.animate-fadeIn { animation: fadeIn .25s ease both; }
+
+@keyframes scaleIn { from { opacity: 0; transform: scale(.96) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+.modal-panel { animation: scaleIn .3s cubic-bezier(.22,1,.36,1) both; }
+
+@keyframes bounceDot { 0%, 80%, 100% { transform: translateY(0); opacity: .35; } 40% { transform: translateY(-4px); opacity: 1; } }
+.typing-dot { animation: bounceDot 1.2s infinite; }
+.typing-dot:nth-child(2) { animation-delay: .15s; }
+.typing-dot:nth-child(3) { animation-delay: .3s; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin .8s linear infinite; }
+
+/* ------- Toast notification ------- */
+.toast-container {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  width: min(26rem, calc(100vw - 2rem));
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
+  width: 100%;
+  padding: .875rem 1rem;
+  border-radius: 1rem;
+  background: #1F1209;
+  color: #fff;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: 0 14px 34px -14px rgba(31,18,9,.45);
+  pointer-events: auto;
+  animation: toastIn .3s cubic-bezier(.22,1,.36,1) both;
+}
+
+.toast-success { background: #0F7B46; }
+.toast-error { background: #C0273A; }
+
+.toast-icon { display: inline-flex; flex-shrink: 0; }
+.toast-icon svg { width: 1.25rem; height: 1.25rem; color: #fff; }
+
+.toast--closing { animation: toastOut .3s ease forwards; }
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(14px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toastOut {
+  to { opacity: 0; transform: translateY(14px) scale(.98); }
+}
