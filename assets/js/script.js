@@ -4,7 +4,7 @@
    ========================================================================= */
 
 /* ------- 1. Konfigurasi Webhook (n8n via Ngrok) ------- */
-const WEBHOOK_URL = "https://aversion-tamer-cinnamon.ngrok-free.dev/webhook/klaim-trial";
+const WEBHOOK_URL = "https://n8n.mylarisinaja.my.id/webhook/klaim-trial";
 
 /* ------- Helper ------- */
 const $ = (sel) => document.querySelector(sel);
